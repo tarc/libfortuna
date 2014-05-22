@@ -34,7 +34,9 @@
 
 #include <stdlib.h>
 #include <sys/types.h>
+#ifndef WIN32
 #include <sys/param.h>
+#endif
 INCLUDE_MALLOC_H
 #include "c.h"
 

@@ -31,7 +31,9 @@
  * contrib/pgcrypto/md5.c
  */
 
+#ifndef WIN32
 #include <sys/param.h>
+#endif
 #include "c.h"
 #include "md5.h"
 

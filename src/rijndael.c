@@ -40,7 +40,9 @@ Mean:		   500 cycles =    51.2 mbits/sec
 
 */
 
+#ifndef WIN32
 #include <sys/param.h>
+#endif
 
 #include "px.h"
 #include "rijndael.h"

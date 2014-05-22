@@ -36,7 +36,9 @@
  * contrib/pgcrypto/sha2.c
  */
 
+#ifndef WIN32
 #include <sys/param.h>
+#endif
 
 #include "c.h"
 #include "sha2.h"
