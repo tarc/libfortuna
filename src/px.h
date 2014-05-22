@@ -35,7 +35,7 @@
 #include <stdlib.h>
 #include <sys/types.h>
 #include <sys/param.h>
-#include <malloc_np.h>
+INCLUDE_MALLOC_H
 #include "c.h"
 
 /* keep debug messages? */

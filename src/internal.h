@@ -33,7 +33,7 @@
 #define __INTERNAL_H
 
 #include <stdlib.h>
-#include <malloc_np.h>
+INCLUDE_MALLOC_H
 #include <time.h>
 
 #include "px.h"
