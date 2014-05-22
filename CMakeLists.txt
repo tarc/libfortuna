@@ -21,9 +21,9 @@ endif ()
 
 # System specific settings:
 if (${CMAKE_SYSTEM_NAME} STREQUAL "FreeBSD")
-	add_definitions (-DINCLUDE_MALLOC_H="#include <malloc_np.h>")
+	add_definitions (-DINCLUDE_MALLOC_H= "#include <malloc_np.h>")
 else ()
-	add_definitions (-DINCLUDE_MALLOC_H="#include <malloc.h>")
+	add_definitions (-DINCLUDE_MALLOC_H= "#include <malloc.h>")
 endif ()
 
 
