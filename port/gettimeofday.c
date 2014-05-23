@@ -28,7 +28,11 @@
 
 #include "c.h"
 
+#ifndef WIN32
 #include <sys/time.h>
+#else
+#include <Windows.h>
+#endif
 
 
 /* FILETIME of Jan 1 1970 00:00:00. */
