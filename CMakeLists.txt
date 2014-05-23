@@ -19,12 +19,4 @@ elseif ("${CMAKE_C_COMPILER_ID}" STREQUAL "MSVC")
 endif ()
 
 
-# System specific settings:
-if (${CMAKE_SYSTEM_NAME} STREQUAL "FreeBSD")
-	add_definitions (-DINCLUDE_MALLOC_H= "#include <malloc_np.h>")
-else ()
-	add_definitions (-DINCLUDE_MALLOC_H= "#include <malloc.h>")
-endif ()
-
-
 add_subdirectory (src)

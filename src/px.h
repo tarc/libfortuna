@@ -37,7 +37,6 @@
 #ifndef WIN32
 #include <sys/param.h>
 #endif
-INCLUDE_MALLOC_H
 #include "c.h"
 
 /* keep debug messages? */
