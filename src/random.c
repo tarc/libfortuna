@@ -46,7 +46,11 @@
 #define TRY_DEV_RANDOM
 
 #include <fcntl.h>
+#ifndef WIN32
+#include <unistd.h>
+#else
 #include <io.h>
+#endif
 
 int
 safe_read(int fd, void *buf, size_t count)
