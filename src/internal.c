@@ -31,6 +31,10 @@
 
 #include <time.h>
 
+#ifdef WIN32
+#include "port.h"
+#endif
+
 #include "px.h"
 #include "md5.h"
 #include "sha1.h"
@@ -523,7 +527,11 @@ px_find_digest(const char *name, PX_MD **res)
 	PX_MD	   *h;
 
 	for (p = int_digest_list; p->name; p++)
+#ifndef WIN32
+		if (strcasecmp(p->name, name) == 0)
+#else
 		if (pg_strcasecmp(p->name, name) == 0)
+#endif
 		{
 			h = malloc(sizeof(*h));
 			p->init(h);

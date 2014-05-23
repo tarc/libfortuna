@@ -29,6 +29,10 @@
  * contrib/pgcrypto/px.c
  */
 
+#ifdef WIN32
+#include "port.h"
+#endif
+
 #include "c.h"
 #include "px.h"
 
@@ -109,7 +113,11 @@ px_resolve_alias(const PX_Alias *list, const char *name)
 {
 	while (list->name)
 	{
+#ifndef WIN32
+		if (strcasecmp(list->alias, name) == 0)
+#else
 		if (pg_strcasecmp(list->alias, name) == 0)
+#endif
 			return list->name;
 		list++;
 	}

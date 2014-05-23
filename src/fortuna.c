@@ -33,6 +33,7 @@
 #include <sys/time.h>
 #else
 #include <winsock2.h>
+#include "port.h"
 #endif
 #include <time.h>
 
