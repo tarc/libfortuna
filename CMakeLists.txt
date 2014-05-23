@@ -18,6 +18,7 @@ elseif ("${CMAKE_C_COMPILER_ID}" STREQUAL "MSVC")
 	set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} /D _CRT_SECURE_NO_WARNINGS")
 endif ()
 
+
 # Include postgres port of *nixe's functions to Windows
 if (${CMAKE_SYSTEM_NAME} STREQUAL "Windows")
 	add_subdirectory (port)
