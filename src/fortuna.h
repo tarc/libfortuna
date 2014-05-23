@@ -33,8 +33,11 @@
 #define __FORTUNA_H
 
 #include "c.h"
+#include "fortuna_export.h"
 
+FORTUNA_EXPORT
 void		fortuna_get_bytes(unsigned len, uint8 *dst);
+FORTUNA_EXPORT
 void		fortuna_add_entropy(const uint8 *data, unsigned len);
 
 #endif

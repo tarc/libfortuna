@@ -439,7 +439,7 @@ extract_data(FState *st, unsigned count, uint8 *dst)
 FState main_state;
 int	init_done = 0;
 
-void
+FORTUNA_EXPORT void
 fortuna_add_entropy(const uint8 *data, unsigned len)
 {
 	if (!init_done)
@@ -452,7 +452,7 @@ fortuna_add_entropy(const uint8 *data, unsigned len)
 	add_entropy(&main_state, data, len);
 }
 
-void
+FORTUNA_EXPORT void
 fortuna_get_bytes(unsigned len, uint8 *dst)
 {
 	if (!init_done)

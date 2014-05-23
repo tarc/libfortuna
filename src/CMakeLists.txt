@@ -4,10 +4,21 @@ include_directories (${CMAKE_CURRENT_SOURCE_DIR})
 add_library (${PROJECT_NAME} SHARED ${SOURCES})
 add_library (${PROJECT_NAME}-st STATIC ${SOURCES})
 
+include (GenerateExportHeader)
+
 if (${CMAKE_SYSTEM_NAME} STREQUAL "Windows")
 	target_link_libraries (${PROJECT_NAME} port)
 	target_link_libraries (${PROJECT_NAME}-st port)
 	include_directories (${CMAKE_SOURCE_DIR}/port)
+
+	GENERATE_EXPORT_HEADER( ${PROJECT_NAME}
+		BASE_NAME ${PROJECT_NAME}
+		#EXPORT_MACRO_NAME MyLibrary_EXPORT
+		#EXPORT_FILE_NAME MyLibrary_Export.h
+		)
+	message (STATUS "def: -D${PROJECT_NAME}_EXPORTS")
+	add_definitions (-D${PROJECT_NAME}_EXPORTS)
+	include_directories (${CMAKE_CURRENT_BINARY_DIR})
 endif ()
 
 
