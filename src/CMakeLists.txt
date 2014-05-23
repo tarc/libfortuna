@@ -5,8 +5,8 @@ add_library (${PROJECT_NAME} SHARED ${SOURCES})
 add_library (${PROJECT_NAME}-st STATIC ${SOURCES})
 
 if (${CMAKE_SYSTEM_NAME} STREQUAL "Windows")
-	target_link_libraries (${PROJECT_NAME} utils)
-	target_link_libraries (${PROJECT_NAME}-st utils)
+	target_link_libraries (${PROJECT_NAME} port)
+	target_link_libraries (${PROJECT_NAME}-st port)
 endif ()
 
 # In windows systems name static library with -st suffix, for the dynamic one
