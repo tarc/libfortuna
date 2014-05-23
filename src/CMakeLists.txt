@@ -16,7 +16,7 @@ GENERATE_EXPORT_HEADER( ${PROJECT_NAME}
 include_directories (${CMAKE_CURRENT_BINARY_DIR})
 
 
-# Include portability includes for Windows and link the corresponding libs.
+# Include portability headers for Windows and link the corresponding libs.
 # Also make the library export functions tagged with FORTUNA_EXPORT, and not
 # import them:
 if (${CMAKE_SYSTEM_NAME} STREQUAL "Windows")
@@ -48,7 +48,7 @@ else ()
 	set(ARCHIVE_DEST "lib") # static libs
 endif ()
 
-file (GLOB HEADER_FILES ${CMAKE_SOURCE_DIR}/src/*.h)
+file (GLOB HEADER_FILES ${CMAKE_SOURCE_DIR}/src/*.h ${CMAKE_CURRENT_BINARY_DIR}/*.h)
 
 install (FILES ${HEADER_FILES} DESTINATION ${FILES_DEST})
 install (TARGETS ${PROJECT_NAME} ${PROJECT_NAME}-st
