@@ -46,7 +46,7 @@
 #define TRY_DEV_RANDOM
 
 #include <fcntl.h>
-#include <unistd.h>
+#include <io.h>
 
 int
 safe_read(int fd, void *buf, size_t count)
