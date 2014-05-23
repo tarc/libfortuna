@@ -51,6 +51,8 @@
 #include <stdarg.h>
 #include <stdio.h>
 
+#define HIGHBIT                    (0x80)
+#define IS_HIGHBIT_SET(ch)     ((unsigned char)(ch) & HIGHBIT)
 
 typedef signed char int8;		/* == 8 bits */
 typedef signed short int16;		/* == 16 bits */
