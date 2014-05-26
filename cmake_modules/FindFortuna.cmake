@@ -1,3 +1,5 @@
+set (CMAKE_PREFIX_PATH ${CMAKE_PREFIX_PATH} $ENV{PROGRAMFILES}/fortuna)
+
 if (libfortuna_USE_STATIC_LIBS)
 	find_library (Fortuna_LIBRARIES fortuna-st)
 else ()
@@ -6,7 +8,7 @@ endif ()
 
 find_path (Fortuna_INCLUDE_DIRS
 	NAMES fortuna.h
-	PATHS /usr/include /usr/local/include ENV PROGRAMFILES
+	PATHS /usr/include /usr/local/include 
 	PATH_SUFFIXES fortuna libfortuna)
 
 include (FindPackageHandleStandardArgs)
