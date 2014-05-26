@@ -4,7 +4,7 @@ if (libfortuna_USE_STATIC_LIBS)
 	find_library (Fortuna_LIBRARIES fortuna)
 endif ()
 
-find_path (Fortuna_INCLUDE_DIRS fortuna.h)
+find_path (Fortuna_INCLUDE_DIRS NAMES fortuna.h PATH fortuna libfortuna)
 
 include (FindPackageHandleStandardArgs)
 if (libfortuna_USE_STATIC_LIBS)
