@@ -1,0 +1,4 @@
+#define libfortuna_VERSION_MAJOR @libfortuna_VERSION_MAJOR@
+#define libfortuna_VERSION_MINOR @libfortuna_VERSION_MINOR@
+
+#cmakedefine BUILD_SHARED_LIBS

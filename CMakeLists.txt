@@ -1,8 +1,25 @@
 cmake_minimum_required (VERSION 2.8.5)
 
-set(_CFLAGS "-O2")
-
 project(fortuna)
+
+
+option (BUILD_SHARED_LIBS
+	"Compile Libfortuna as a shared library" ON)
+
+set (libfortuna_VERSION_MAJOR 0)
+set (libfortuna_VERSION_MINOR 1)
+
+# header file to pass some CMake settings to source code:
+configure_file (
+	"${PROJECT_SOURCE_DIR}/libfortunaConfig.h.in"
+	"${PROJECT_BINARY_DIR}/libfortunaConfig.h"
+	)
+
+# to find fortunaConfig.h:
+include_directories ("${PROJECT_BINARY_DIR}")
+
+
+set(_CFLAGS "-O2")
 
 
 # Compiler specific settings:

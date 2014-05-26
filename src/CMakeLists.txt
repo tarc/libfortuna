@@ -2,7 +2,6 @@ file (GLOB SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/*.c)
 include_directories (${CMAKE_CURRENT_SOURCE_DIR})
 
 add_library (${PROJECT_NAME} SHARED ${SOURCES})
-add_library (${PROJECT_NAME}-st STATIC ${SOURCES})
 
 
 # Declare macros to export dlls functions:
@@ -21,17 +20,14 @@ include_directories (${CMAKE_CURRENT_BINARY_DIR})
 # import them:
 if (${CMAKE_SYSTEM_NAME} STREQUAL "Windows")
 	target_link_libraries (${PROJECT_NAME} port)
-	target_link_libraries (${PROJECT_NAME}-st port)
 	include_directories (${CMAKE_SOURCE_DIR}/port)
 
 	add_definitions (-D${PROJECT_NAME}_EXPORTS)
 endif ()
 
 
-# In windows systems, static library's name is appended with -st suffix, for
-# the dynamic one will produce also a .lib file:
-if (NOT ${CMAKE_SYSTEM_NAME} STREQUAL "Windows")
-	set_target_properties (${PROJECT_NAME}-st PROPERTIES OUTPUT_NAME ${PROJECT_NAME})
+if (NOT BUILD_SHARED_LIBS)
+	set_target_properties (${PROJECT_NAME} PROPERTIES OUTPUT_NAME ${PROJECT_NAME}-st)
 endif ()
 
 
@@ -51,7 +47,7 @@ endif ()
 file (GLOB HEADER_FILES ${CMAKE_SOURCE_DIR}/src/*.h ${CMAKE_CURRENT_BINARY_DIR}/*.h)
 
 install (FILES ${HEADER_FILES} DESTINATION ${FILES_DEST})
-install (TARGETS ${PROJECT_NAME} ${PROJECT_NAME}-st
+install (TARGETS ${PROJECT_NAME}
 	RUNTIME DESTINATION ${RUNTIME_DEST}
 	LIBRARY DESTINATION ${LIBRARY_DEST}
 	ARCHIVE DESTINATION ${ARCHIVE_DEST})
