@@ -151,6 +151,7 @@ int px_find_cipher(const char *name, PX_Cipher **res);
 
 int px_get_pseudo_random_bytes(uint8 *dst, unsigned count);
 
+FORTUNA_EXPORT
 void system_reseed(void);
 
 int px_get_random_bytes(uint8 *dst, unsigned count);
