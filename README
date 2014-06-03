@@ -1,3 +1,7 @@
+This library is a fork from libfortuna which adds a CMakeLists.txt
+and is supposed to compile on Linux and Windows systems. Here the
+original README:
+
 #libfortuna
 
 This library uses code from the PostgreSQL database project.
